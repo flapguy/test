@@ -6,13 +6,40 @@ metadata: {"openclaw": {"always": true, "emoji": "🦋", "homepage": "https://do
 
 # 🦋 Launch a BNB Token on Flap
 
-Launch a token on [Flap](https://docs.flap.sh) (BNB Chain). Follow these steps in order. Load each reference file only when you reach that step.
+You are launching a token on [Flap](https://docs.flap.sh) (BNB Chain). Execute each step in order. Read each reference file at the step that requires it — do not pre-load them.
 
 ---
 
-## Step 0 — Preflight
+## Directory structure
 
-Read `references/preflight.md` and verify every prerequisite is satisfied before continuing.
+```
+skills/launch-bnb-token-on-flap/
+├── SKILL.md                        ← this file
+└── references/
+    ├── preflight.md                ← Step 0: prerequisites
+    ├── vault-factory.md            ← Step 2: vault factory setup
+    ├── meta-upload.md              ← Steps 3 & 6: metadata upload
+    ├── tax-params.md               ← Step 4: tax parameters
+    ├── salt-finding.md             ← Step 7: vanity salt mining
+    └── construct-tx.md             ← Step 8: transaction construction
+```
+
+---
+
+## Step 0 — Preflight check
+
+Before starting, verify that all required reference files are present. If any are missing, you **MUST** obtain them before proceeding: 
+
+**Required files:**
+
+- `references/preflight.md`
+- `references/vault-factory.md`
+- `references/meta-upload.md`
+- `references/tax-params.md`
+- `references/salt-finding.md`
+- `references/construct-tx.md`
+
+Check each file exists, then read `references/preflight.md` and verify every prerequisite is satisfied before continuing.
 
 ---
 
