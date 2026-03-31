@@ -1,12 +1,21 @@
 ---
 name: launch-bnb-token-on-flap
 description: Launch a token on Flap BNB
-metadata: {"openclaw": {"always": true, "emoji": "🦋", "homepage": "https://docs.flap.sh", "requires": {"anyBins": ["node", "npx", "npm"]}}}
+metadata: {"openclaw": {"always": false, "emoji": "🦋", "homepage": "https://docs.flap.sh", "requires": {"anyBins": ["node", "npx", "npm"]}}}
 ---
 
 # 🦋 Launch a BNB Token on Flap
 
-You are launching a token on [Flap](https://docs.flap.sh) (BNB Chain). Execute each step in order. Read each reference file at the step that requires it — do not pre-load them.
+Launch a token on [Flap](https://docs.flap.sh) (BNB Chain). Execute each step in order. Read each reference file at the step that requires it — do not pre-load them.
+
+---
+
+## ⚠️ Security Notice
+
+This skill requires sensitive capabilities that must be provided:
+
+- **EVM wallet with signing capability** — hardware wallet, browser wallet, MPC, or other secure signing method for BNB Chain (chain ID 56). The skill mainly focuses on constructing transaction data and then the transaction should be signed by the EVM wallet. Always verify transaction details independently before signing.    
+- **BNB mainnet RPC endpoint** — a trusted RPC URL for reading blockchain state and broadcasting transactions. If not presently available, this skill will use the public fallback `https://bsc-dataseed.binance.org/`.  
 
 ---
 

@@ -6,10 +6,10 @@ Collect each parameter below from the user. Validate constraints before proceedi
 
 | Parameter | Type | Constraints | Default / Suggestion |
 |---|---|---|---|
-| `buyTaxRate` | `uint16` | 1–1000 (0.01%–10%) | 300 (3%) |
-| `sellTaxRate` | `uint16` | 1–1000 (0.01%–10%) | 1000 (10%) |
+| `buyTaxRate` | `uint16` | 0–1000 (0%–10%) | 300 (3%) |
+| `sellTaxRate` | `uint16` | 0–1000 (0%–10%) | 1000 (10%) |
 
-Asymmetric buy/sell rates are supported (Tax Token V3). 
+Asymmetric buy/sell rates are supported (Tax Token V3). One rate can be zero, but not both. 
 
 ## Durations
 
@@ -44,7 +44,7 @@ Typical simple configuration: `mktBps = 10000`, all others = 0.
 ## Summary checklist
 
 Before proceeding, confirm:
-- [ ] `buyTaxRate` and `sellTaxRate` are not both zero and do not exceed 1000 (10%). 
+- [ ] At least one of `buyTaxRate` or `sellTaxRate` must be non-zero. Neither rate may exceed 1000 (10%). 
 - [ ] `taxDuration >= 365 days` (31 536 000 seconds).
 - [ ] `antiFarmerDuration >= 1 day` (86 400 seconds).
 - [ ] `mktBps + deflationBps + dividendBps + lpBps == 10000`.
