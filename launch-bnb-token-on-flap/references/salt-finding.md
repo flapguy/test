@@ -15,6 +15,8 @@
 | Standard Token Impl | `0x8b4329947e34b6d56d71a3385cac122bade7d78d` |
 | Tax Token V3 Impl | `0x024f18294970B5c76c0691b87f138A0317156422` |
 
+> **Important**: When calculating the salt, **always use the Portal address** as the deployer in CREATE2 calculations, even if you're launching the token through vaultPortal. This is because vaultPortal delegates the actual token deployment to Portal, which acts as the deployer contract.
+
 ## Algorithm
 
 Repeatedly hash a random seed until the predicted CREATE2 address ends with the required suffix. The token is deployed as a minimal proxy clone of the token implementation.
@@ -32,7 +34,7 @@ import type { Address, Hex } from "viem";
 function findVanityTokenSalt(
   suffix: string,           // "7777" or "8888"
   tokenImpl: Address,       // token implementation address
-  portal: Address           // Portal contract address
+  portal: Address           // Always use Portal contract address as the deployer for CREATE2 calculations 
 ): { salt: Hex; address: Address; iterations: number } {
   if (suffix.length !== 4) throw new Error("Suffix must be 4 characters");
 
